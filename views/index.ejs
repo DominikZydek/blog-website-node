@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<div class="posts-container">
+    <% if (Object.keys(postList).length !== 0) { %>
+        <h1>Posts:</h1>
+        <ul class="blog-posts">
+            <% Object.keys(postList).forEach(function(title) { %>
+                <form action="/post-content" method="POST">
+                    <input name="title" type="submit" value="<%= title %>">
+                </form>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <h1>No posts? Be the first!</h1>
+        <% } %>
+    <form class="create-a-post" action="/create" method="GET">
+        <input type="submit" value="Create a post">
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>

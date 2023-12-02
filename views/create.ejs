@@ -1,0 +1,12 @@
+<%- include("partials/header.ejs") %>
+
+<form id="postForm" action="/create/add" method="POST">
+    <input type="text" name="title" placeholder="Title" required>
+    <% if (postExists) { %>
+        <p class="error">Title already used!</p>
+    <% } %>
+    <textarea name="post" placeholder="Your post goes here..." spellcheck="false" required></textarea>
+    <input type="submit" value="Post">
+</form>
+
+<%- include("partials/footer.ejs") %>
